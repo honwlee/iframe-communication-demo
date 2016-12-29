@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Iframe1-消息</title>
+</head>
+
+<body>
+    <div>
+        <p id="message"></p>
+    </div>
+    <script>
+    var message = document.getElementById('message');
+    var messageHandle = function(evt) {
+        message.innerHTML = '接收的消息是：' + evt.data;
+    };
+    if (window.addEventListener) {
+        window.addEventListener("message", messageHandle, false);
+    } else if (window.attachEvent) {
+        window.attachEvent('onmessage', messageHandle);
+    }
+    </script>
+</body>
+
+</html>
